@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { FaRegWindowClose } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
 import { FaGreaterThan, FaLessThan } from "react-icons/fa";
 import { initialMenu } from "../components/AddMenuModal";
 import axios from "../axios/axios";
@@ -53,8 +53,8 @@ const AddMenuItems = ({ menu,close }: props) => {
         <div className="max-w-[400px] w-full p-6  rounded-lg relative " style={{ backgroundImage: `url(${menuBanner})`}}>
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="  sm:mx-auto sm:w-full sm:max-w-sm">
-            <button onClick={close} className="absolute top-4 right-4">
-              <FaRegWindowClose />
+            <button onClick={close} className="absolute top-4 right-4 text-white">
+              <IoMdClose />
             </button>
             <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-100">
               Add Menu Items
