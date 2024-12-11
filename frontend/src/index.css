@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Kelly+Slab&family=Oswald:wght@200..700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+*{
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Oswald';
+}
+
+@layer components{
+  
+  /* .main {
+     @apply container mx-auto max-w-[1200px];
+  } */
+  .mobNav {
+       @apply text-base tracking-widest gap-[33px] fixed inset-0 bg-black flex flex-col justify-center items-center;
+  }
+
+
+
+}
+
+@layer utilities{
+  .font-kelly{
+    font-family: 'Kelly Slab'
+  }
+}
