@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { IoMdClose } from "react-icons/io";
-import { FaGreaterThan, FaLessThan } from "react-icons/fa";
 import { initialMenu } from "../components/AddMenuModal";
 import axios from "../axios/axios";
 import { GlobalContext } from "./GlobalStateProvider";
@@ -15,13 +14,13 @@ type props = {
 const AddMenuItems = ({ menu,close }: props) => {
   const context = useContext(GlobalContext);
   const [selecteditems, setSelecteditems] = useState<menuItems[]>([]);
-  if (!context) return;
-  const { setItems, setMenus } = context;
   const [items, setItem] = useState({
     name: "",
     price: "",
     description: "",
   });
+  if (!context) return;
+  const { setMenus } = context;
   const handleFormChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -39,7 +38,7 @@ const AddMenuItems = ({ menu,close }: props) => {
       const response: any = await axios.post("/menu", { data });
       console.log(response);
       if (response) {
-        setMenus((prev) => [...prev, response.data.menu]);
+        setMenus((prev:initialMenu[]) => [...prev, response.data.menu]);
         close()
       }
 

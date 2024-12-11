@@ -1,5 +1,3 @@
-import { useContext, useState } from "react";
-// import { GlobalContext } from "./GlobalStateProvider";
 
 type props = {
   id: string;

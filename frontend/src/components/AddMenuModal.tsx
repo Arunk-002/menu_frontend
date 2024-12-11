@@ -2,7 +2,6 @@ import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { FaGreaterThan } from "react-icons/fa";
 import AddMenuItems from "./AddMenuItems";
-import axios from "../axios/axios"
 import menuBanner from "../assets/menuBanner.png";
 
 type props = {
