@@ -5,7 +5,8 @@ import { initialMenu } from "../components/AddMenuModal";
 import axios from "../axios/axios";
 import { GlobalContext } from "./GlobalStateProvider";
 import { menuItems } from "./ButtonBanner";
-
+import { FiCheck } from "react-icons/fi";
+import menuBanner from '../assets/menuBanner.png'
 type props = {
   menu: initialMenu,
   close:()=>void
@@ -48,14 +49,14 @@ const AddMenuItems = ({ menu,close }: props) => {
     }
   };
   return (
-    <div className="bg-black fixed inset-0 flex justify-center items-center  h-screen z-10">
-      <div className="max-w-[400px] w-full bg-white p-6 rounded-lg relative ">
+    <div className="bg-white opacity-100 fixed inset-0 flex justify-center items-center  h-screen z-10">
+        <div className="max-w-[400px] w-full p-6  rounded-lg relative " style={{ backgroundImage: `url(${menuBanner})`}}>
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="  sm:mx-auto sm:w-full sm:max-w-sm">
             <button onClick={close} className="absolute top-4 right-4">
               <FaRegWindowClose />
             </button>
-            <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
+            <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-100">
               Add Menu Items
             </h2>
           </div>
@@ -63,7 +64,7 @@ const AddMenuItems = ({ menu,close }: props) => {
                 {
                     selecteditems.map((elem)=>{
                         return (
-                            <h3 className="bg-blue-500 text-white px-4 py-2 w-fit rounded-lg">{elem.name}</h3>
+                            <h3 className=" flex justify-center items-center gap-1 bg-gray-300 text-black px-4 py-2 w-fit rounded-lg ">{elem.name}<FiCheck/></h3>
                         )
                     })
                 }
@@ -73,7 +74,7 @@ const AddMenuItems = ({ menu,close }: props) => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-gray-100"
                 >
                   Name
                 </label>
@@ -94,7 +95,7 @@ const AddMenuItems = ({ menu,close }: props) => {
                 <div className="flex items-center justify-between">
                   <label
                     htmlFor="description"
-                    className="block text-sm/6 font-medium text-gray-900"
+                    className="block text-sm/6 font-medium text-gray-100"
                   >
                     Description
                   </label>
@@ -113,7 +114,7 @@ const AddMenuItems = ({ menu,close }: props) => {
               <div>
                 <label
                   htmlFor="price"
-                  className="block text-sm/6 font-medium text-gray-900"
+                  className="block text-sm/6 font-medium text-gray-100"
                 >
                   Price
                 </label>

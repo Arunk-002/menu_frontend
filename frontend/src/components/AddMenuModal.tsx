@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { FaRegWindowClose } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
 import { FaGreaterThan } from "react-icons/fa";
 import AddMenuItems from "./AddMenuItems";
 import axios from "../axios/axios"
+import menuBanner from "../assets/menuBanner.png";
 
 type props = {
   close: () => void;
@@ -26,28 +27,19 @@ const AddMenuModal = ({ close }: props) => {
     const { name, value } = e.target;
     setMenu((prev) => ({ ...prev, [name]: value }));
   };
-//   const addMenu = async() =>{
-//         try {
-//             const response = await axios.post(`/menu`,{})
-//             console.log(response);
-//         } catch (err) {
-//             console.log((err as Error).message);
-            
-//         }
-//   }
   return (
     <>  
       {nextModal ? (
         <AddMenuItems close={close} menu={menu} />
       ) : (
-        <div className="bg-black fixed inset-0 flex justify-center items-center  h-screen z-10">
-          <div className="max-w-[400px] w-full bg-white p-6 rounded-lg relative ">
+        <div className="bg-white opacity-100 fixed inset-0 flex justify-center items-center  h-screen z-10">
+          <div className="max-w-[400px] w-full p-6  rounded-lg relative " style={{ backgroundImage: `url(${menuBanner})`}}>
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
               <div className="  sm:mx-auto sm:w-full sm:max-w-sm">
-                <button onClick={close} className="absolute top-4 right-4">
-                  <FaRegWindowClose />
+                <button onClick={close} className="absolute text-white top-4 right-4">
+                <IoMdClose />
                 </button>
-                <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
+                <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">
                   Add Menu
                 </h2>
               </div>
@@ -57,7 +49,7 @@ const AddMenuModal = ({ close }: props) => {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm/6 font-medium text-gray-900"
+                      className="block text-sm/6 font-medium text-white"
                     >
                       Name
                     </label>
@@ -77,7 +69,7 @@ const AddMenuModal = ({ close }: props) => {
                     <div className="flex items-center justify-between">
                       <label
                         htmlFor="description"
-                        className="block text-sm/6 font-medium text-gray-900"
+                        className="block text-sm/6 font-medium text-white"
                       >
                         Description
                       </label>
